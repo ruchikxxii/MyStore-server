@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model('User',UserSchema)
 
-mongoose.connect(process.env.MongoDBAtlas)
+mongoose.connect(process.env.MONGODBATLAS)
 
 passport.serializeUser((user,done)=>{
     done(null,user.id)
@@ -23,8 +23,8 @@ passport.deserializeUser((id,done)=>{
 })
 
 passport.use(new GoogleStartergy({
-    clientID:process.env.clientID,
-    clientSecret:process.env.clientSecret,
+    clientID:process.env.CLIENTID,
+    clientSecret:process.env.CLIENTSECRET,
     callbackURL:'/auth/google/callback'
 },(accessToken,refreshToken,profile,done)=>{
     User.findOne({googleID : profile.id})
