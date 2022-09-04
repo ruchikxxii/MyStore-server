@@ -4,11 +4,12 @@ const AuthRouter = require(__dirname+'/routes/auth')
 const passport = require('passport');
 const mongoose = require('mongoose')
 const session = require('express-session')
+require('dotenv').config()
 
 const app = express();
 
 app.use(session({
-    secret:'helloworld',
+    secret:process.env.Secret,
     resave:false,
     saveUninitialized:true,
     cookie:{
