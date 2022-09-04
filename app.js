@@ -38,5 +38,5 @@ app.use(AuthRouter)
 app.use(express.static(__dirname+'/public'))
 
 app.listen(process.env.PORT,()=>{
-    console.log('server up on port 5000')
+    console.log(`server up on port ${process.env.PORT}`)
 })
